@@ -256,16 +256,13 @@ img {
 }
 
 .part-btn-disabled{
-  color: grey !important;
+  color: gray !important;
 }
 
 .active{
   background-color: transparent !important;
   font-weight: bold !important;
-}
-
-.brand{
-  color: grey;
+  color: white !important;
 }
 
 .select-options{
