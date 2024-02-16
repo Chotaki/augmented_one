@@ -19,11 +19,11 @@ export const config = {
   publicUserToken: templateJson.publicToken,
   sceneUUID: assetIds.SceneCarConfigurator,
 
-  isAnimationActiveTokenEntityNameUUID: "2fba1b6c-5532-4f02-b35c-8abf261a60ab",
-  isDoorOpenedTokenUUID: "55d43bb6-1f7e-4f0c-a0a1-6e19188cf384",
+  isAnimationActiveTokenEntityNameUUID: "b53c25bf-2031-4f75-aa7d-46919f9255bd",
+  isDoorOpenedTokenUUID: "45abc18a-278f-4bfe-b906-f5ea76cfc589",
 
   carSceneRefName: "Car",
-  rimSceneRefName: "1e50d7d4-74c7-4b52-b9ce-2519604bcadf",
+  rimSceneRefName: "fd5c8a38-f986-443f-b2f5-b0cecc22b060",
  
   colorChoices: /** @type {[number, number, number][]} */ ([
     [0, 0, 0],
