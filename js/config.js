@@ -24,7 +24,7 @@ export const config = {
 
   carSceneRefName: "Car",
   rimSceneRefName: "fd5c8a38-f986-443f-b2f5-b0cecc22b060",
- 
+  
   colorChoices: /** @type {[number, number, number][]} */ ([
     [0, 0, 0],
     [1, 1, 1],

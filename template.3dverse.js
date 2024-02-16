@@ -6,116 +6,116 @@ export default {
     SceneCarConfigurator: {
       asset_id: "34b8c80a-407b-4ca4-aebc-a46bb3dd61b5",
       asset_type: "scene",
-      path: "",
+      path: "/Public",
     },
 
     // cars
     SceneMercedesGclass: {
       asset_id: "98d5437b-2693-4796-a307-73e498e05044",
       asset_type: "scene",
-      path: "",
+      path: "/Public",
     },
 
     // rims
     SceneMansoryRims: {
       asset_id: "10188d33-606d-4fc5-b2aa-a4fa198e69d8",
       asset_type: "scene",
-      path: "",
+      path: "/Public",
     },
     SceneRocketRims: {
       asset_id: "488811b6-63f8-40c2-bf95-c5130b3da7b1",
       asset_type: "scene",
-      path: "",
+      path: "/Public",
     },
     SceneMercedesRims: {
       asset_id: "38e148ac-8ff3-4112-8c79-f1379e4d8026",
       asset_type: "scene",
-      path: "",
+      path: "/Public",
     },
 
     // car mods
     MeshHood: {
       asset_id: "ffdea039-fdb3-4d34-a592-b90bca1fef97",
       asset_type: "mesh",
-      path: "",
+      path: "/Public",
     },
     MeshLips: {
       asset_id: "50dceb45-c9b8-4510-a8ed-162c8963dd1f",
       asset_type: "mesh",
-      path: "",
+      path: "/Public",
     },
     MeshBackBumper: {
       asset_id: "5206cff6-ebdb-48db-a031-bfd190e8fc24",
       asset_type: "mesh",
-      path: "",
+      path: "/Public",
     },
     MeshFrontBumper: {
       asset_id: "61b18af2-cb92-4fb0-9aa0-a6d83f9c014d",
       asset_type: "mesh",
-      path: "",
+      path: "/Public",
     },
     MeshTrunk: {
       asset_id: "2b1c2828-ceb1-4ae7-b0b1-b19fba7d898e",
       asset_type: "mesh",
-      path: "",
+      path: "/Public",
     },
     MeshFrontProtection: {
-      asset_id: "7bb4e859-f709-4a17-8e21-cd898092c783",
+      asset_id: "b4cf4767-d1b9-4347-b886-4ca535241360",
       asset_type: "mesh",
-      path: "",
+      path: "/Public",
     },
     MeshMudProtection: {
       asset_id: "ca567d0f-9b7d-4dec-81e9-ea698105325c",
       asset_type: "mesh",
-      path: "",
+      path: "/Public",
     },
 
     // material ( for "cars paint" )
     MaterialMetallic: {
       asset_id: "fb1ed4d2-fd1f-4b20-967c-ee861d3c9ff1",
       asset_type: "material",
-      path: "",
+      path: "/Public",
     },
     MaterialSolid: {
       asset_id: "65a02268-ec91-4e08-8574-552430d4ba10",
       asset_type: "material",
-      path: "",
+      path: "/Public",
     },
     MaterialMatte: {
       asset_id: "9bc9d830-2ce2-41f2-892f-3adc4696fd83",
       asset_type: "material",
-      path: "",
+      path: "/Public",
     },
 
     // cars paint
     MaterialGclassPaint: {
       asset_id: "ecde5b9a-5415-42b4-8b43-810a0ec84161",
       asset_type: "material",
-      path: "",
+      path: "/Public",
     },
 
     // cars front & rear lights
     MaterialGclassHeadLights: {
-      asset_id: "21b1ddc6-ba9a-439a-b223-1775a18d2a28",
+      asset_id: "a3e7c7d0-25ab-4188-96b0-60831048c5a5",
       asset_type: "material",
-      path: "",
+      path: "/Public",
     },
     MaterialGclassRearLights: {
-      asset_id: "7a5d9d5b-288b-4f4e-8638-0837288c99d0",
+      asset_id: "73c457eb-877f-45f3-8a69-c22e5930d6cb",
       asset_type: "material",
-      path: "",
+      path: "/Public",
     },
 
     // animation sequences 
     AnimationSequenceRotation: {
       asset_id: "a66d5574-0b0f-4471-8a59-04f35008bfcd",
       asset_type: "animation_sequence",
-      path: "",
+      path: "/Public",
     },
     AnimationSequenceDoorOpening: {
       asset_id: "4d0538db-8c5e-47fd-86b1-3ad414ed663a",
       asset_type: "animation_sequence",
-      path: "",
+      path: "/Public",
     },
   },
 };
