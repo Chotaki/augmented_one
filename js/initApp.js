@@ -1,11 +1,10 @@
 import * as SceneLoader from "./SceneLoader.js";
 import * as CarSelection from "./CarSelection.js";
+import * as RimSelection from "./RimSelection.js";
 import * as CarPaint from "./CarPaint.js";
-import * as Environment from "./Environment.js";
 import * as LightsViewOption from "./LightsViewOption.js";
 import * as RotationViewOption from "./RotationViewOption.js";
-import * as RGBGradientViewOption from "./RGBGradientViewOption.js";
-import * as LuminosityViewOption from "./LuminosityViewOption.js";
+import * as DoorOpeningOption from "./DoorOpeningOption.js";
 import * as SharePrompt from "./SharePrompt.js";
 import * as TimeoutOverlay from "./TimeoutOverlay.js";
 
@@ -14,12 +13,11 @@ import * as TimeoutOverlay from "./TimeoutOverlay.js";
 Object.assign(window, {
   UI: {
     CarSelection,
+    RimSelection,
     CarPaint,
-    Environment,
     LightsViewOption,
     RotationViewOption,
-    RGBGradientViewOption,
-    LuminosityViewOption,
+    DoorOpeningOption,
     TimeoutOverlay,
   },
 });
@@ -29,12 +27,11 @@ async function initApp() {
   for (const uiComponent of [
     SceneLoader,
     CarSelection,
+    RimSelection,
     CarPaint,
-    Environment,
     LightsViewOption,
     RotationViewOption,
-    RGBGradientViewOption,
-    LuminosityViewOption,
+    DoorOpeningOption,
     SharePrompt,
     TimeoutOverlay,
   ]) {
@@ -48,12 +45,11 @@ async function initApp() {
   // Now we run after-connection setup for our UI components that need it
   for (const uiComponent of [
     CarSelection,
+    RimSelection,
     CarPaint,
-    Environment,
     LightsViewOption,
     RotationViewOption,
-    RGBGradientViewOption,
-    LuminosityViewOption,
+    DoorOpeningOption,
     TimeoutOverlay,
   ]) {
     uiComponent.setup();

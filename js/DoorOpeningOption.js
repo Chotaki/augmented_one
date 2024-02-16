@@ -1,12 +1,12 @@
 import { config } from "./config.js";
 import { subscribeToEntityChanges } from "./utils-3dverse.js";
 
-let rotationOn = false;
+let doorOpened = false;
 
 function render() {
   /** @type {HTMLElement} */ (
-    document.getElementById("rotate-toggle")
-  ).classList.toggle("active", rotationOn);
+    document.getElementById("door-toggle")
+  ).classList.toggle("Open", doorOpened);
 }
 
 export function initUI() {
@@ -14,9 +14,15 @@ export function initUI() {
 }
 
 /** @type {Entity} */
-let isAnimationActiveTokenEntity;
+let carEntity;
+
+/** @type {Entity} */
+let isDoorOpenedTokenEntity;
 
 export async function setup() {
+  [carEntity] = await SDK3DVerse.engineAPI.findEntitiesByNames(
+    config.carSceneRefName
+  );
   // It's possible to subscribe to changes in animation state, but not yet
   // possible to ask if an animation is already taking place when joining a
   // session.
@@ -25,36 +31,36 @@ export async function setup() {
   // workaround is to keep an extra blank entity with a toggled 'tags'
   // component. Tags can be used to store custom data that isn't necessarily
   // able to be queried from 3dverse otherwise.
-  [isAnimationActiveTokenEntity] =
+  [isDoorOpenedTokenEntity] =
     await SDK3DVerse.engineAPI.findEntitiesByEUID(
-      config.isAnimationActiveTokenEntityNameUUID,
+      config.isDoorOpenedTokenUUID,
     );
-  subscribeToEntityChanges(isAnimationActiveTokenEntity, () => {
-    rotationOn = isAnimationActiveTokenEntity
+  subscribeToEntityChanges(isDoorOpenedTokenEntity, () => {
+    doorOpened = isDoorOpenedTokenEntity
       .getComponent("tags")
-      .value.includes("animationIsActive");
+      .value.includes("doorIsOpen");
     render();
   });
 }
 
-export function toggleRotationOn() {
-  rotationOn = !rotationOn;
+export function toggleDoor() {
+  doorOpened = !doorOpened;
   render();
 
-  if (rotationOn) {
+  if (doorOpened) {
     SDK3DVerse.engineAPI.playAnimationSequence(
-      config.rotationAnimationSequenceUUID,
+      config.AnimationSequenceDoorOpeningUUID, {playbackSpeed : 1}, carEntity
     );
   } else {
-    SDK3DVerse.engineAPI.pauseAnimationSequence(
-      config.rotationAnimationSequenceUUID,
+    SDK3DVerse.engineAPI.playAnimationSequence(
+        config.AnimationSequenceDoorOpeningUUID, {playbackSpeed : -1}, carEntity
     );
   }
 
   // We are going to use a blank entity in the scene to track the
   // rotation state until we have a way to query animation state
-  isAnimationActiveTokenEntity.setComponent("tags", {
-    value: rotationOn ? ["animationIsActive"] : [],
+  isDoorOpenedTokenEntity.setComponent("tags", {
+    value: doorOpened ? ["doorIsOpen"] : [],    
   });
   SDK3DVerse.engineAPI.commitChanges();
 }

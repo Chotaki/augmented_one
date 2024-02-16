@@ -36,68 +36,34 @@
 
       <div class="main-ui-layout">
         <div class="top-row">
-          <!-- AUGMENTED ONE LOGO -->
-          <div class="ao-logo"><img class="ao-logo" src="img/AO_White.png" alt=""></div>
+          <div class="ao-logo">
+            <img class="ao-logo" src="img/AO_White.png" alt="">
+          </div>
           
           <div class="ui-right">
-          <!-- CAR HEADING CONTAINER -->
-          <div id="car-heading" class="car-heading"></div>
-          <!-- CAR HEADING TEMPLATE -->
-          <script id="car-heading-template" type="text/x-handlebars">
-            <h2 class="car-name">Car Model</h2>
-            <div class="underline"></div>
-            <div class="car-model-layout d-flex align-items-center">
-              <div>
-                <img class="mercedes-logo" src="img/mercedes.png" alt="">
-              </div>
-              <div>
-                <span>Brabus Rocket G900</span><br>
-                <span>Year : 2023</span><br>
-                <span>0 to 100 Km/h : 2.8s</span><br>
-                <span>CO2 (g/Km) : 334-355 (WLTP)</span><br>
-                <span>L/100 Km : 14.7-15.6</span>
-              </div>
-            </div>
-            <div class="price align-items-center">
-              <span>price : $550,000</span>
-            </div>
-          </script>
-
-            <!-- SETTINGS PANEL -->
-            <div id="settings-panel" class="settings-panel hidden">
-              <label class="settings-line rgb-gradient-setting">
-                <h4>RGB Gradient</h4>
-                <div class="switch-container">
-                  <input
-                    id="rgb-gradient"
-                    type="checkbox"
-                    onclick="UI.RGBGradientViewOption.toggleRgbGradientOn()"
-                  />
-                  <div class="switch-display"></div>
+            <!-- CAR HEADING CONTAINER -->
+            <div id="car-heading" class="car-heading"></div>
+            <!-- CAR HEADING TEMPLATE -->
+            <script id="car-heading-template" type="text/x-handlebars">
+              <h2 class="car-name">Car Model</h2>
+              <div class="underline"></div>
+              <div class="car-model-layout d-flex align-items-center">
+                <div>
+                  <img class="mercedes-logo" src="img/mercedes.png" alt="">
                 </div>
-              </label>
-              <div class="luminosity-setting">
-                <label class="settings-line">
-                  <h4>Luminosity</h4>
-                  <h4 id="luminosity-value"></h4>
-                </label>
-                <input
-                  id="luminosity-slider"
-                  oninput="UI.LuminosityViewOption.changeUserCameraLuminosity(
-              { target: this }
-            )"
-                  type="range"
-                  min="0"
-                  max="5"
-                  step="0.1"
-                />
-                <small>Only your render is affected by this setting.</small>
+                <div>
+                  <span>{{name_car}}</span><br>
+                  <span>Year : {{year_car}}</span><br>
+                  <span>0 to 100 Km/h : {{zeroToHundred_car}}</span><br>
+                  <span>CO2 (g/Km) : {{co2_car}} (WLTP)</span><br>
+                  <span>L/100 Km : {{liters_car}}</span>
+                </div>
               </div>
-            </div>
-
-            
+              <div class="price align-items-center">
+                <span>price : ${{price_car}}</span>
+              </div>
+            </script>
           </div>
-        </div>
 
           <!-- MENU -->
           <div class="ui-left">
@@ -109,13 +75,13 @@
                 <a class="part-select" role="button" data-bs-toggle="collapse" href="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Interior</a>
                 <span class="underline"></span>
               </p>
-              <div class="row">
-                <div class="col">
+            <div class="row">
+              <div class="col">
                   <div class="collapse multi-collapse " id="multiCollapseExample1">
                     <div class="nav flex-column nav-pills me-3 align-items-start" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                       <button class="nav-link active part-btn" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Paint</button>
                       <button class="nav-link part-btn" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Rims</button>
-                      <button class="nav-link part-btn" id="v-pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#v-pills-disabled" type="button" role="tab" aria-controls="v-pills-disabled" aria-selected="false">Spoiler</button>
+                      <button class="nav-link part-btn" id="v-pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#v-pills-disabled" type="button" role="tab" aria-controls="v-pills-disabled" aria-selected="false">Modifications</button>
                   </div>
                 </div>
                 <div class="col">
@@ -129,18 +95,18 @@
                 </div>
               </div>
             </div>
-            </script>
           </div>
         </div>
+      </div>
 
-        <div class="lower-content">
+      <div class="lower-content">
           <div class="bottom-bar">
 
             <!-- SELECT OPTIONS -->
               <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
                   <div class="select-options">
-                    <h2>Paint</h2>
+                    <h2>Paint & Motion option</h2>
                     <div class="underline"></div>
                     <div class="material-and-color flex-column justify-content-center">
                       <!-- COLORS SELECTION CONTAINER -->
@@ -240,6 +206,72 @@
                             />
                           </svg>
                         </div>
+
+                        <div
+                          class="option-button"
+                          onclick="UI.LightsViewOption.toggleLightsOn()"
+                        >
+                          <svg
+                            id="light-toggle"
+                            height="60%"
+                            width="60%"
+                            viewBox="0 0 128 92"
+                            fill="none"
+                          >
+                            <path
+                              d="M73 14.5C64.6728 -11.6705 29.4999 3.66658 13.4999 16.9999C-4.49999 31.9998 -3.99996 55.707 13.4999 71.9999C28 85.5 61 104.5 73 80.5C77.9498 70.6005 76.5002 25.5 73 14.5Z"
+                              class="toggle-button-fill"
+                            />
+                            <path
+                              d="M91 21H123"
+                              class="toggle-button-stroke"
+                              stroke-width="10"
+                              stroke-linecap="round"
+                            />
+                            <path
+                              d="M91 46H123"
+                              class="toggle-button-stroke"
+                              stroke-width="10"
+                              stroke-linecap="round"
+                            />
+                            <path
+                              d="M91 72H123"
+                              class="toggle-button-stroke"
+                              stroke-width="10"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </div>
+
+                        <div
+                          class="option-button"
+                          onclick="UI.RotationViewOption.toggleRotationOn()"
+                        >
+                          <svg
+                            id="rotate-toggle"
+                            class="toggle-button-fill"
+                            height="55%"
+                            width="55%"
+                            viewBox="0 0 214.367 214.367"
+                          >
+                            <path
+                              d="M202.403,95.22c0,46.312-33.237,85.002-77.109,93.484v25.663l-69.76-40l69.76-40v23.494
+                              c27.176-7.87,47.109-32.964,47.109-62.642c0-35.962-29.258-65.22-65.22-65.22s-65.22,29.258-65.22,65.22
+                              c0,9.686,2.068,19.001,6.148,27.688l-27.154,12.754c-5.968-12.707-8.994-26.313-8.994-40.441C11.964,42.716,54.68,0,107.184,0
+                              S202.403,42.716,202.403,95.22z"
+                            />
+                          </svg>
+                        </div>
+
+                        <div
+                        class="button-icon"
+                        onclick="UI.DoorOpeningOption.toggleDoor()"
+                        >
+                          <svg
+                            id="door-toggle"                 
+                          >                      
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -247,34 +279,33 @@
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
                   <div class="d-inline-flex">
                     <div class="select-options left">
-                      <h2>Rims</h2>
+                      <h2>Rims</h2>         
                       <div class="underline"></div>
-                      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                          <button onclick="" class="nav-link active" id="pills-home-tab3" data-bs-toggle="pill" data-bs-target="#pills-home3" type="button" role="tab" aria-controls="pills-home" aria-selected="true">BRABUS<img class="switch-car-button" src="img/rim1.jpg" alt=""></button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <button onclick="" class="nav-link" id="pills-profile-tab3" data-bs-toggle="pill" data-bs-target="#pills-profile3" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">MANSORY <img class="switch-car-button" src="img/rim2.jpg" alt=""></button>
-                        </li>
-                      </ul>
+                      <div
+                        class="switch-car-button"
+                        onclick="UI.RimSelection.nextRim()"
+                      >
+                        <svg
+                            width="15"
+                            height="100%"
+                            viewBox="0 0 27 47"
+                            fill="none"
+                        >
+                          <path d="M2 2L23 23.5L2 45" />
+                        </svg>
+                      </div> 
                     </div>
                     <div class="select-options right">
-                      <div class="tab-content" id="pills-tabContent">
+                      <div class="tab-content" id="v-pills-tabContent3">
                         <div class="tab-pane fade show active" id="pills-home3" role="tabpanel" aria-labelledby="pills-home-tab3" tabindex="0">
-                          <h3>Description</h3>
-                          <div class="underline"></div>
-                          <span>Monoblock Z forged wheels</span> <br>
-                          <span>Carbon wheels</span> <br>
-                          <span>Black and red carbon</span> <br>
-                          <span>$1,700</span>
-                        </div>
-                        <div class="tab-pane fade" id="pills-profile3" role="tabpanel" aria-labelledby="pills-profile-tab3" tabindex="0">
-                          <h3>Description</h3>
-                          <div class="underline"></div>
-                          <span>FD.15 (21")</span> <br>
-                          <span>Fully forged wheel</span> <br>
-                          <span>Fludiom paint chrome</span> <br>
-                          <span>$1,760</span>
+                          <div id="rim-heading"></div>
+                          <script id="rim-heading-template" type="text/x-handlebars">
+                            <h3>Description</h3>
+                            <div class="underline"></div>
+                            <span>{{name_rims}}</span><br>
+                            <span>{{description_rims}}</span><br>
+                            <span>${{price_rims}}</span>
+                          </script>
                         </div>
                       </div>
                     </div>
@@ -282,113 +313,215 @@
                 </div>
                 <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">
                   <div class="select-options">
-                    <h3>Spoiler</h3>
+                    <h3>Parts Modification Manager</h3>
                     <div class="underline"></div>
-                    <div class="spoiler" onclick="">
-                      <span>BRABUS</span>
-                      <img 
-                      style="height: 200px;
-                      width: 500px;
-                      border-radius: 30px;"
-                      src="img/spoiler.jpg" alt="">
+                    <div class="material-selection">
+
+                      <span>Hood</span>
+                      <div
+                      class="button-icon"
+                      onclick="UI.CarSelection.toggleModEntityVis(0)"
+                      >
+                        <svg
+                          width="50%"
+                          height="50%"
+                          viewBox="0 0 130 130"
+                          fill="none"
+                        >
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="61"
+                            class="stroke"
+                            stroke-width="8"
+                          />
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            transform="rotate(90 65 65)"
+                            class="fill"
+                          />
+                        </svg>
+                      </div>
+
+                      <span>Front Protection</span>
+                      <div
+                      class="button-icon"
+                      onclick="UI.CarSelection.toggleModEntityVis(1)"
+                      >
+                        <svg
+                          width="50%"
+                          height="50%"
+                          viewBox="0 0 130 130"
+                          fill="none"
+                        >
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="61"
+                            class="stroke"
+                            stroke-width="8"
+                          />
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            transform="rotate(90 65 65)"
+                            class="fill"
+                          />
+                        </svg>
+                      </div>
+
+                      <span>Front Bumper</span>
+                      <div
+                      class="button-icon"
+                      onclick="UI.CarSelection.toggleModEntityVis(2)"
+                      >
+                        <svg
+                          width="50%"
+                          height="50%"
+                          viewBox="0 0 130 130"
+                          fill="none"
+                        >
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="61"
+                            class="stroke"
+                            stroke-width="8"
+                          />
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            transform="rotate(90 65 65)"
+                            class="fill"
+                          />
+                        </svg>
+                      </div>
+
+                      <span>Lips</span>
+                      <div
+                      class="button-icon"
+                      onclick="UI.CarSelection.toggleModEntityVis(3)"
+                      >
+                        <svg
+                          width="50%"
+                          height="50%"
+                          viewBox="0 0 130 130"
+                          fill="none"
+                        >
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="61"
+                            class="stroke"
+                            stroke-width="8"
+                          />
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            transform="rotate(90 65 65)"
+                            class="fill"
+                          />
+                        </svg>
+                      </div>
+
+                      <span>Fenders</span>
+                      <div
+                      class="button-icon"
+                      onclick="UI.CarSelection.toggleModEntityVis(4)"
+                      >
+                        <svg
+                          width="50%"
+                          height="50%"
+                          viewBox="0 0 130 130"
+                          fill="none"
+                        >
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="61"
+                            class="stroke"
+                            stroke-width="8"
+                          />
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            transform="rotate(90 65 65)"
+                            class="fill"
+                          />
+                        </svg>
+                      </div>
+
+
+                      <span>Rear Bumper</span>
+                      <div
+                      class="button-icon"
+                      onclick="UI.CarSelection.toggleModEntityVis(5)"
+                      >
+                        <svg
+                          width="50%"
+                          height="50%"
+                          viewBox="0 0 130 130"
+                          fill="none"
+                        >
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="61"
+                            class="stroke"
+                            stroke-width="8"
+                          />
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            transform="rotate(90 65 65)"
+                            class="fill"
+                          />
+                        </svg>
+                      </div>
+
+                      <span>Trunk</span>
+                      <div
+                      class="button-icon"
+                      onclick="UI.CarSelection.toggleModEntityVis(6)"
+                      >
+                        <svg
+                          width="50%"
+                          height="50%"
+                          viewBox="0 0 130 130"
+                          fill="none"
+                        >
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="61"
+                            class="stroke"
+                            stroke-width="8"
+                          />
+                          <circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            transform="rotate(90 65 65)"
+                            class="fill"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-            <!-- CUBEMAP SELECTION CONTAINER -->
-            <div id="cubemap-selection" class="cubemap-selection hidden"></div>
-            <!-- CUBEMAP SELECTION TEMPLATE -->
-            <script id="cubemap-selection-template" type="text/x-handlebars">
-              {{#each cubemaps as | cubemap |}}
-                <div
-                  class="cubemap"
-                  onclick="UI.Environment.changeCubemap({{@index}})"
-                >
-                  <div
-                    class="cubemap-check"
-                  >
-                    <img
-                      src="./img/orange-check.png"
-                      class="cubemap-check-icon"
-                      alt=""
-                    />
-                  </div>
-                  <img
-                    src="{{cubemap.previewSrc}}"
-                    alt="{{cubemap.displayName}}"
-                    class="cubemap-bg"
-                  />
-                </div>
-              {{/each}}
-            </script>
-
-            <!-- VIEW OPTIONS -->
-            <div class="view-options hidden">
-              <div
-                class="option-button"
-                onclick="UI.LightsViewOption.toggleLightsOn()"
-              >
-                <svg
-                  id="light-toggle"
-                  height="60%"
-                  width="60%"
-                  viewBox="0 0 128 92"
-                  fill="none"
-                >
-                  <path
-                    d="M73 14.5C64.6728 -11.6705 29.4999 3.66658 13.4999 16.9999C-4.49999 31.9998 -3.99996 55.707 13.4999 71.9999C28 85.5 61 104.5 73 80.5C77.9498 70.6005 76.5002 25.5 73 14.5Z"
-                    class="toggle-button-fill"
-                  />
-                  <path
-                    d="M91 21H123"
-                    class="toggle-button-stroke"
-                    stroke-width="10"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M91 46H123"
-                    class="toggle-button-stroke"
-                    stroke-width="10"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    d="M91 72H123"
-                    class="toggle-button-stroke"
-                    stroke-width="10"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </div>
-
-              <div
-                class="option-button"
-                onclick="UI.RotationViewOption.toggleRotationOn()"
-              >
-                <svg
-                  id="rotate-toggle"
-                  class="toggle-button-fill"
-                  height="55%"
-                  width="55%"
-                  viewBox="0 0 214.367 214.367"
-                >
-                  <path
-                    d="M202.403,95.22c0,46.312-33.237,85.002-77.109,93.484v25.663l-69.76-40l69.76-40v23.494
-            c27.176-7.87,47.109-32.964,47.109-62.642c0-35.962-29.258-65.22-65.22-65.22s-65.22,29.258-65.22,65.22
-            c0,9.686,2.068,19.001,6.148,27.688l-27.154,12.754c-5.968-12.707-8.994-26.313-8.994-40.441C11.964,42.716,54.68,0,107.184,0
-            S202.403,42.716,202.403,95.22z"
-                  />
-                </svg>
-              </div>
             </div>
           </div>
-
-          <div class="info-3dverse">
-            <!-- SHARE PROMPT -->
-            <div id="share-prompt" class="share-prompt"></div>
-            <!-- SHARE PROMPT TEMPLATE -->
-            <script id="share-prompt-template" type="text/x-handlebars"></script>
-          </div>
+          <div id="share-prompt"></div>
+          <!-- SHARE PROMPT TEMPLATE -->
+          <script id="share-prompt-template" type="text/x-handlebars"></script>
         </div>
       </div>
     </div>
