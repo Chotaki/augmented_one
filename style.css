@@ -21,7 +21,7 @@ html {
   --color-primary-lightened: #f27357;
   --dark-gray: #272727;
   --less-dark-gray: #454642;
-  --toggle-off-color: #696969;
+  --toggle-off-color: black;
   --more-off-white: #d1d5db;
   --off-white: #efeeee;
   --cubemap-checked-bg: rgba(0, 0, 0, 0.3);
@@ -235,7 +235,7 @@ img {
   left: 0;
   display: flex;
   gap: var(--spacing);
-  color: white;
+  color: rgba(0, 0, 0, 0.4);
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(50px);
   padding: var(--spacing-sm);
@@ -453,6 +453,12 @@ img {
 
 .ao-logo{
   height: 40%;
+}
+
+.ao-logo-margin{
+  height: 40%;
+  margin-left: 2%;
+  margin-top: 1%;
 }
 
 /* SETTINGS PANEL */
