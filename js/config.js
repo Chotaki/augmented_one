@@ -23,7 +23,7 @@ export const config = {
   isDoorOpenedTokenUUID: "45abc18a-278f-4bfe-b906-f5ea76cfc589",
 
   carSceneRefName: "Car",
-  rimSceneRefName: "fd5c8a38-f986-443f-b2f5-b0cecc22b060",
+  rimSceneRefName: "38e148ac-8ff3-4112-8c79-f1379e4d8026",
   
   colorChoices: /** @type {[number, number, number][]} */ ([
     [0, 0, 0],

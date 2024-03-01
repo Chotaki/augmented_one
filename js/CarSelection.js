@@ -40,7 +40,7 @@ let modEntity;
 export async function setup() {
   // hide scene ref cache container
   const [carModifications] = await SDK3DVerse.engineAPI.findEntitiesByEUID(
-  "e816012c-ee7f-4f5c-8a69-69a72c1df36a",
+  "52d1838a-d053-4516-81a9-d59070a98f11",
   );
   SDK3DVerse.engineAPI.setEntityVisibility(carModifications, false);
 
