@@ -71,8 +71,8 @@ export async function toggleModEntityVis(index) {
   );
   
   if(modEntity.isVisible()) {
-    SDK3DVerse.engineAPI.setEntityVisibility(modEntity, false);
+    SDK3DVerse.engineAPI.modEntity.setVisibility(false);
   } else {
-    SDK3DVerse.engineAPI.setEntityVisibility(modEntity, true);
+    SDK3DVerse.engineAPI.setVisibility(true);
   }
 }

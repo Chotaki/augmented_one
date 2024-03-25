@@ -26,14 +26,22 @@ function render() {
 export function initUI() {
   render();
 }
+/** @type {EntityTemplate} */
+const entityTemplate = new SDK3DVerse.EntityTemplate();
+
 
 /** @type {Entity} */
 let rimEntity;
 
 export async function setup() {
+  entityTemplate.attachComponent("scene_ref", {'value' : config.rims.findIndex({ sceneUUID })});
+  rimEntity = instantiateEntity(entityTemplate);
   [rimEntity] = await SDK3DVerse.engineAPI.findEntitiesByEUID(
     config.rimSceneRefName
   );
+  if (selectedRimIndex !== undefined){
+    console.log("selectedRimIndex is somehow undefined...")
+  }
   subscribeToEntityChanges(rimEntity, () => {
     selectedRimIndex = config.rims.findIndex(({ sceneUUID }) => {
       return rimEntity.getComponent("scene_ref").value === sceneUUID;
@@ -43,6 +51,7 @@ export async function setup() {
 }
 
 export function nextRim() {
+  console.log(selectedRimIndex);
   selectedRimIndex = (selectedRimIndex + 1) % config.rims.length;
   render();
 
