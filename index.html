@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="price align-items-center">
-                <span>price : ${{price_car}}</span>
+                <span>base price : ${{price_car}}</span>
               </div>
             </script>
           </div>
@@ -107,7 +107,7 @@
               <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
                   <div class="select-options">
-                    <h2>Paint & Motion option</h2>
+                    <h2>Paint & Display option</h2>
                     <div class="underline"></div>
                     <div class="material-and-color flex-column justify-content-center">
                       <!-- COLORS SELECTION CONTAINER -->
@@ -215,6 +215,7 @@
                         >
                           <svg
                             id="light-toggle"
+                            class="hidden"
                             height="60%"
                             width="60%"
                             viewBox="0 0 128 92"
@@ -253,9 +254,9 @@
                         >
                           <svg
                             id="rotate-toggle"
-                            class="toggle-button-fill"
-                            height="55%"
-                            width="55%"
+                            class="toggle-button-fill hidden"
+                            height="30%"
+                            width="30%"
                             viewBox="0 0 214.367 214.367"
                           >
                             <path
@@ -265,6 +266,7 @@
                               S202.403,42.716,202.403,95.22z"
                             />
                           </svg>
+                          <img class="rotation-btn" src="img/turn-arrow.png" alt="">
                         </div>
 
                         <div
@@ -272,26 +274,38 @@
                         onclick="UI.DoorOpeningOption.toggleDoor()"
                         >
                           <svg
-                            id="door-toggle"                 
+                            id="door-toggle" 
+                            class="hidden"                
                           >                      
                           </svg>
+                          <img class="door-btn" src="img/door.png" alt="">
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                <!-- CHANGE RIMS -->
+
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
-                  <div class="d-inline-flex">
-                    <div class="select-options left">
-                      <h2>Rims</h2>         
-                      <div class="underline"></div>
+                  <div class="select-options rims-selection">
+                    <h2>Rims</h2>         
+                    <div class="underline"></div>
+                    <div class="row">
+                      <div class="col desc-rims-layout">
+                        <div id="rim-heading"></div>
+                          <script id="rim-heading-template" type="text/x-handlebars">
+                            <span>{{name_rims}}</span><br>
+                            <span>{{description_rims}}</span><br>
+                            <span>${{price_rims}}</span>
+                          </script>
+                      </div>
                       <div
-                        class="switch-car-button"
+                        class="col switch-car-button"
                         onclick="UI.RimSelection.nextRim()"
                       >
                         <svg
                             width="15"
-                            height="100%"
                             viewBox="0 0 27 47"
                             fill="none"
                         >
@@ -299,224 +313,218 @@
                         </svg>
                       </div> 
                     </div>
-                    <div class="select-options right">
-                      <div class="tab-content" id="v-pills-tabContent3">
-                        <div class="tab-pane fade show active" id="pills-home3" role="tabpanel" aria-labelledby="pills-home-tab3" tabindex="0">
-                          <div id="rim-heading"></div>
-                          <script id="rim-heading-template" type="text/x-handlebars">
-                            <h3>Description</h3>
-                            <div class="underline"></div>
-                            <span>{{name_rims}}</span><br>
-                            <span>{{description_rims}}</span><br>
-                            <span>${{price_rims}}</span>
-                          </script>
+                  </div>
+                </div>
+
+                <!-- MODS SELECTION -->
+
+                <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">
+                  <div class="select-options mods-layout">
+                    <div class="row">
+                      <div class="col">
+                        <h3>Modification Manager</h3>
+                        <div class="underline"></div>
+                        <div class="material-selection">
+                      </div>
+                      <div class="col d-inline-flex align-items-center">
+                        <div
+                        class="button-icon"
+                        onclick="UI.CarSelection.toggleModEntityVis(0)"
+                        >
+                          <span>Hood</span>
+                          <svg
+                            width="50%"
+                            height="50%"
+                            viewBox="0 0 130 130"
+                            fill="none"
+                          >
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="61"
+                              class="stroke"
+                              stroke-width="8"
+                            />
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="65"
+                              transform="rotate(90 65 65)"
+                              class="fill"
+                            />
+                          </svg>
+                        </div>
+  
+                        <div
+                        class="button-icon"
+                        onclick="UI.CarSelection.toggleModEntityVis(1)"
+                        >
+                          <span>Front Protection</span>
+                          <svg
+                            width="50%"
+                            height="50%"
+                            viewBox="0 0 130 130"
+                            fill="none"
+                          >
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="61"
+                              class="stroke"
+                              stroke-width="8"
+                            />
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="65"
+                              transform="rotate(90 65 65)"
+                              class="fill"
+                            />
+                          </svg>
+                        </div>
+  
+                        <div
+                        class="button-icon"
+                        onclick="UI.CarSelection.toggleModEntityVis(2)"
+                        >
+                          <span>Front Bumper</span>
+                          <svg
+                            width="50%"
+                            height="50%"
+                            viewBox="0 0 130 130"
+                            fill="none"
+                          >
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="61"
+                              class="stroke"
+                              stroke-width="8"
+                            />
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="65"
+                              transform="rotate(90 65 65)"
+                              class="fill"
+                            />
+                          </svg>
+                        </div>
+  
+                        <div
+                        class="button-icon"
+                        onclick="UI.CarSelection.toggleModEntityVis(3)"
+                        >
+                          <span>Lips</span>
+                          <svg
+                            width="50%"
+                            height="50%"
+                            viewBox="0 0 130 130"
+                            fill="none"
+                          >
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="61"
+                              class="stroke"
+                              stroke-width="8"
+                            />
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="65"
+                              transform="rotate(90 65 65)"
+                              class="fill"
+                            />
+                          </svg>
+                        </div>
+  
+                        <div
+                        class="button-icon"
+                        onclick="UI.CarSelection.toggleModEntityVis(4)"
+                        >
+                          <span>Fenders</span>
+                          <svg
+                            width="50%"
+                            height="50%"
+                            viewBox="0 0 130 130"
+                            fill="none"
+                          >
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="61"
+                              class="stroke"
+                              stroke-width="8"
+                            />
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="65"
+                              transform="rotate(90 65 65)"
+                              class="fill"
+                            />
+                          </svg>
+                        </div>
+
+                        <div
+                        class="button-icon"
+                        onclick="UI.CarSelection.toggleModEntityVis(5)"
+                        >
+                          <span>Rear Bumper</span>
+                          <svg
+                            width="50%"
+                            height="50%"
+                            viewBox="0 0 130 130"
+                            fill="none"
+                          >
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="61"
+                              class="stroke"
+                              stroke-width="8"
+                            />
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="65"
+                              transform="rotate(90 65 65)"
+                              class="fill"
+                            />
+                          </svg>
+                        </div>
+  
+                        <div
+                        class="button-icon"
+                        onclick="UI.CarSelection.toggleModEntityVis(6)"
+                        >
+                          <span>Trunk</span>
+                          <svg
+                            width="50%"
+                            height="50%"
+                            viewBox="0 0 130 130"
+                            fill="none"
+                          >
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="61"
+                              class="stroke"
+                              stroke-width="8"
+                            />
+                            <circle
+                              cx="65"
+                              cy="65"
+                              r="65"
+                              transform="rotate(90 65 65)"
+                              class="fill"
+                            />
+                          </svg>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">
-                  <div class="select-options">
-                    <h3>Parts Modification Manager</h3>
-                    <div class="underline"></div>
-                    <div class="material-selection">
-
-                      <span>Hood</span>
-                      <div
-                      class="button-icon"
-                      onclick="UI.CarSelection.toggleModEntityVis(0)"
-                      >
-                        <svg
-                          width="50%"
-                          height="50%"
-                          viewBox="0 0 130 130"
-                          fill="none"
-                        >
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="61"
-                            class="stroke"
-                            stroke-width="8"
-                          />
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="65"
-                            transform="rotate(90 65 65)"
-                            class="fill"
-                          />
-                        </svg>
-                      </div>
-
-                      <span>Front Protection</span>
-                      <div
-                      class="button-icon"
-                      onclick="UI.CarSelection.toggleModEntityVis(1)"
-                      >
-                        <svg
-                          width="50%"
-                          height="50%"
-                          viewBox="0 0 130 130"
-                          fill="none"
-                        >
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="61"
-                            class="stroke"
-                            stroke-width="8"
-                          />
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="65"
-                            transform="rotate(90 65 65)"
-                            class="fill"
-                          />
-                        </svg>
-                      </div>
-
-                      <span>Front Bumper</span>
-                      <div
-                      class="button-icon"
-                      onclick="UI.CarSelection.toggleModEntityVis(2)"
-                      >
-                        <svg
-                          width="50%"
-                          height="50%"
-                          viewBox="0 0 130 130"
-                          fill="none"
-                        >
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="61"
-                            class="stroke"
-                            stroke-width="8"
-                          />
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="65"
-                            transform="rotate(90 65 65)"
-                            class="fill"
-                          />
-                        </svg>
-                      </div>
-
-                      <span>Lips</span>
-                      <div
-                      class="button-icon"
-                      onclick="UI.CarSelection.toggleModEntityVis(3)"
-                      >
-                        <svg
-                          width="50%"
-                          height="50%"
-                          viewBox="0 0 130 130"
-                          fill="none"
-                        >
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="61"
-                            class="stroke"
-                            stroke-width="8"
-                          />
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="65"
-                            transform="rotate(90 65 65)"
-                            class="fill"
-                          />
-                        </svg>
-                      </div>
-
-                      <span>Fenders</span>
-                      <div
-                      class="button-icon"
-                      onclick="UI.CarSelection.toggleModEntityVis(4)"
-                      >
-                        <svg
-                          width="50%"
-                          height="50%"
-                          viewBox="0 0 130 130"
-                          fill="none"
-                        >
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="61"
-                            class="stroke"
-                            stroke-width="8"
-                          />
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="65"
-                            transform="rotate(90 65 65)"
-                            class="fill"
-                          />
-                        </svg>
-                      </div>
-
-
-                      <span>Rear Bumper</span>
-                      <div
-                      class="button-icon"
-                      onclick="UI.CarSelection.toggleModEntityVis(5)"
-                      >
-                        <svg
-                          width="50%"
-                          height="50%"
-                          viewBox="0 0 130 130"
-                          fill="none"
-                        >
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="61"
-                            class="stroke"
-                            stroke-width="8"
-                          />
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="65"
-                            transform="rotate(90 65 65)"
-                            class="fill"
-                          />
-                        </svg>
-                      </div>
-
-                      <span>Trunk</span>
-                      <div
-                      class="button-icon"
-                      onclick="UI.CarSelection.toggleModEntityVis(6)"
-                      >
-                        <svg
-                          width="50%"
-                          height="50%"
-                          viewBox="0 0 130 130"
-                          fill="none"
-                        >
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="61"
-                            class="stroke"
-                            stroke-width="8"
-                          />
-                          <circle
-                            cx="65"
-                            cy="65"
-                            r="65"
-                            transform="rotate(90 65 65)"
-                            class="fill"
-                          />
-                        </svg>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>

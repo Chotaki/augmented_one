@@ -183,13 +183,13 @@ img {
 .main-ui-layout {
   position: absolute;
   top: var(--spacing);
-  bottom: var(--spacing);
+  bottom: 1%;
   left: var(--spacing);
   right: var(--spacing);
   pointer-events: none;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing);
+  gap: 1%;
 }
 
 .main-ui-layout .top-row {
@@ -231,7 +231,7 @@ img {
   cursor: pointer;
   pointer-events: all;
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 0;
   display: flex;
   gap: var(--spacing);
@@ -307,7 +307,7 @@ img {
 .main-ui-layout .lower-content .bottom-bar {
   position: absolute;
   bottom: 0;
-  left: 600px;
+  left: 300px;
   transform: translateX(-50%);
 }
 
@@ -377,7 +377,7 @@ img {
   height: 3px;
   width: 10rem;
   background-color: white;
-  gap: var(--spacing);
+  /* gap: var(--spacing); */
 }
 
 .mercedes-logo{
@@ -619,6 +619,7 @@ img {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  max-height: 100px;
 }
 
 .material-selection .material-icon {
@@ -656,6 +657,22 @@ img {
 
 .material-selection .material-icon.active-material .fill {
   fill: grey;
+}
+
+/* RIMS SELECTION */
+
+.rims-selection{
+  max-height: 330px;
+}
+
+.desc-rims-layout{
+  min-width: 400px !important;
+}
+
+/* MODS SELECTION */
+
+.mods-layout{
+  transform: translateX(30%) !important;
 }
 
 /* CUBEMAP SELECTION */
@@ -752,7 +769,7 @@ img {
 }
 
 .view-options .option-button {
-  background-color: var(--dark-gray);
+  background-color: white;
   height: var(--button-size);
   width: var(--button-size);
   border-radius: 25%;
@@ -768,22 +785,30 @@ img {
 }
 
 .view-options .toggle-button-fill {
-  fill: var(--toggle-off-color);
+  fill: white;
 }
 .view-options svg.active .toggle-button-fill,
 .view-options svg.active.toggle-button-fill {
-  fill: var(--color-primary);
+  fill: white;
 }
 .view-options .toggle-button-stroke {
-  stroke: var(--toggle-off-color);
+  stroke: white;
 }
 .view-options svg.active .toggle-button-stroke,
 .view-options svg.active.toggle-button-stroke {
-  stroke: var(--color-primary);
+  stroke: white;
 }
 
 .lights-btn{
-  width: 50px;
+  width: 60px;
+}
+
+.rotation-btn{
+  width: 60px;
+}
+
+.door-btn{
+  width: 60px;
 }
 
 /* SHARE PROMPT */
