@@ -70,9 +70,9 @@ export async function toggleModEntityVis(index) {
     config.mods[index].sceneUUID
   );
   
-  if(modEntity) {
-    SDK3DVerse.engineAPI.setEntityVisibility(modEntity, false);
+  if(modEntity.isVisible()) {
+    modEntity.setVisibility(true);
   } else {
-    SDK3DVerse.engineAPI.setEntityVisibility(modEntity, true);
+    modEntity.setVisibility(false);
   }
 }

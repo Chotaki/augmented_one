@@ -35,22 +35,22 @@ export default {
 
     // car mods
     MeshHood: {
-      asset_id: "52054100-27a1-4502-aa8f-1ca4d52b76f8",
+      asset_id: "ffdea039-fdb3-4d34-a592-b90bca1fef97",
       asset_type: "mesh",
       path: "/Public",
     },
     MeshLips: {
-      asset_id: "6721927d-275a-4a52-973e-098d0f305663",
+      asset_id: "50dceb45-c9b8-4510-a8ed-162c8963dd1f",
       asset_type: "mesh",
       path: "/Public",
     },
     MeshBackBumper: {
-      asset_id: "6721927d-275a-4a52-973e-098d0f305663",
+      asset_id: "5206cff6-ebdb-48db-a031-bfd190e8fc24",
       asset_type: "mesh",
       path: "/Public",
     },
     MeshFrontBumper: {
-      asset_id: "6721927d-275a-4a52-973e-098d0f305663",
+      asset_id: "61b18af2-cb92-4fb0-9aa0-a6d83f9c014d",
       asset_type: "mesh",
       path: "/Public",
     },
@@ -65,7 +65,7 @@ export default {
       path: "/Public",
     },
     MeshMudProtection: {
-      asset_id: "6721927d-275a-4a52-973e-098d0f305663",
+      asset_id: "ca567d0f-9b7d-4dec-81e9-ea698105325c",
       asset_type: "mesh",
       path: "/Public",
     },

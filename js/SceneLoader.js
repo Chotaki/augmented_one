@@ -19,6 +19,14 @@ function render({ sceneLoadingState, isSceneLoaded }) {
   /** @type {HTMLElement} */ (document.getElementById("info-span")).innerHTML =
     sceneLoadingState;
 }
+function onAssetsLoaded(areAssetsLoaded) {
+  if(!areAssetsLoaded) {
+       return;
+  }
+  console.log('All assets loaded for the first time!');
+  SDK3DVerse.notifier.off('onAssetsLoadedChanged', onAssetsLoaded)
+}
+SDK3DVerse.notifier.on('onAssetsLoadedChanged', onAssetsLoaded);
 
 export function initUI() {
   render({ sceneLoadingState: "Loading...", isSceneLoaded: false });
@@ -113,3 +121,4 @@ function repositionCameraOnResize(mediaQuery) {
     SDK3DVerse.updateControllerSetting({ speed: 1, sensitivity: 0.4 });
   }
 }
+
