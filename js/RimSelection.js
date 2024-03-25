@@ -34,8 +34,8 @@ const entityTemplate = new SDK3DVerse.EntityTemplate();
 let rimEntity;
 
 export async function setup() {
-  entityTemplate.attachComponent("scene_ref", {'value' : config.rims.findIndex({ sceneUUID })});
-  rimEntity = instantiateEntity(entityTemplate);
+  entityTemplate.attachComponent("scene_ref", {'value' : config.rims[0].sceneUUID});
+  rimEntity = await instantiateEntities(rimEntity, entityTemplate);
   [rimEntity] = await SDK3DVerse.engineAPI.findEntitiesByEUID(
     config.rimSceneRefName
   );
