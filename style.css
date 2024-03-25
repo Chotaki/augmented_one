@@ -675,6 +675,15 @@ img {
   transform: translateX(30%) !important;
 }
 
+/* DOWNLOAD */
+
+.download-btn{
+  width: 5%;
+  position: absolute;
+  right: 0;
+  bottom: 1%;
+}
+
 /* CUBEMAP SELECTION */
 
 .cubemap-selection {
